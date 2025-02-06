@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Modelo de dados do usuário
 struct User: Decodable {
     let name: String
     let avatarURL: String

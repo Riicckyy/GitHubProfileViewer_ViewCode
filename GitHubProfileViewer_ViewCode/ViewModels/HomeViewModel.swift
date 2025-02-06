@@ -7,9 +7,11 @@
 
 import Foundation
 
+// ViewModel para a tela inicial
 class HomeViewModel {
     var username: String = ""
 
+    // Cria o ViewModel do perfil com base no nome de usuário
     func createProfileViewModel(completion: @escaping (ProfileViewModel?) -> Void) {
         guard !username.isEmpty else {
             completion(nil)

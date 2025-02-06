@@ -7,6 +7,7 @@
 
 import Foundation
 
+// ViewModel para a tela de detalhes do perfil
 class ProfileViewModel {
     private let user: User
 

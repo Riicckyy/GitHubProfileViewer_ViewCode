@@ -7,12 +7,15 @@
 
 import Foundation
 
+// Enum para representar erros de API
 enum APIError: Error {
     case userNotFound
     case networkError
 }
 
+// Cliente de API para buscar dados do GitHub
 class APIClient {
+    // Método para buscar os dados do usuário
     static func fetchUser(username: String, completion: @escaping (Result<User, APIError>) -> Void) {
         let urlString = "https://api.github.com/users/\(username)/repos"
         guard let url = URL(string: urlString) else { return }

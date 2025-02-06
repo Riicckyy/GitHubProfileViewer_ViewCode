@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Célula personalizada para exibir repositórios
 class RepositoryCell: UITableViewCell {
     private let nameLabel = UILabel()
     private let languageLabel = UILabel()
@@ -20,17 +21,22 @@ class RepositoryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // Configura as views da célula
     private func setupViews() {
+        // Configuração do nome do repositório
         nameLabel.font = .boldSystemFont(ofSize: 16)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        // Configuração da linguagem do repositório
         languageLabel.font = .systemFont(ofSize: 14)
         languageLabel.textColor = .gray
         languageLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        // Adiciona as views à hierarquia
         contentView.addSubview(nameLabel)
         contentView.addSubview(languageLabel)
 
+        // Configuração das constraints
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
@@ -43,6 +49,7 @@ class RepositoryCell: UITableViewCell {
         ])
     }
 
+    // Configura a célula com os dados do repositório
     func configure(with repository: Repository) {
         nameLabel.text = repository.name
         languageLabel.text = repository.language

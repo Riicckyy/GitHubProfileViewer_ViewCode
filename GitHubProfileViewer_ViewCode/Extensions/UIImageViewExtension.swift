@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Extensão para UIImageView para carregar imagens de URLs
 extension UIImageView {
     func loadImage(from url: String) {
         guard let url = URL(string: url) else { return }

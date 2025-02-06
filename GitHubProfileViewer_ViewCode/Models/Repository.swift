@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Modelo de dados do repositório
 struct Repository: Decodable {
     let name: String
     let language: String?

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// ViewController para a tela inicial
 class HomeViewController: UIViewController {
     private let textField = UITextField()
     private let searchButton = UIButton(type: .system)
@@ -19,11 +20,14 @@ class HomeViewController: UIViewController {
         setupViews()
     }
 
+    // Configura as views da tela inicial
     private func setupViews() {
+        // Configuração do campo de texto
         textField.placeholder = "Enter GitHub username"
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
 
+        // Configuração do botão de busca
         searchButton.setTitle("Search", for: .normal)
         searchButton.setTitleColor(.white, for: .normal)
         searchButton.backgroundColor = .systemBlue
@@ -32,9 +36,11 @@ class HomeViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
 
+        // Adiciona as views à hierarquia
         view.addSubview(textField)
         view.addSubview(searchButton)
 
+        // Configuração das constraints
         NSLayoutConstraint.activate([
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
@@ -47,6 +53,7 @@ class HomeViewController: UIViewController {
         ])
     }
 
+    // Ação do botão de busca
     @objc private func searchButtonTapped() {
         viewModel.username = textField.text ?? ""
         viewModel.createProfileViewModel { [weak self] profileViewModel in
@@ -61,6 +68,7 @@ class HomeViewController: UIViewController {
         }
     }
 
+    // Exibe um alerta de erro
     private func showError(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
